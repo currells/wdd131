@@ -1,5 +1,6 @@
 const theme_toggle = document.getElementById('theme');
 const body = document.body;
+const img = document.querySelector('img');
 
 // function declaration
 function changeTheme(el) {
@@ -7,17 +8,12 @@ function changeTheme(el) {
 
     if (value === 'dark') {
         body.classList.add('dark');
+        img.src = './byui-logo_white.png';
     } else {
         body.classList.remove('dark');
+        img.src = './byui-logo_blue.webp';
     }
 };
-
-// arrow function
-// const changeTheme = ({ value }) => {
-//     value === 'dark'
-//         ? body.classList.add(value)
-//         : body.classList.remove('dark');
-// };
 
 // listening for a JS event
 // theme_toggle.addEventListener('change', function(el) {
