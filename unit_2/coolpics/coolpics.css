@@ -67,6 +67,7 @@ img {
 .viewer img {
     max-width: 100%;
     object-fit: contain;
+    overflow: hidden;
 }
 
 .viewer button {
