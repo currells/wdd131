@@ -16,8 +16,8 @@ nav {
     padding: var(--spacing-primary);
 }
 
-header,
-footer {
+footer,
+header {
     text-align: center;
 }
 
@@ -38,15 +38,45 @@ figure {
 
 img {
     width: 100%;
+    max-height: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.viewer {
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+    align-items: center;
+    color: white;
+    padding: var(--spacing-primary);
+}
+
+.viewer img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.viewer button {
+    justify-self: right;
+    margin-bottom: 20px;
 }
 
 @media screen and (min-width: 700px) {
     section.gallery {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    nav {
-        display: none;
     }
 }
 
@@ -55,16 +85,16 @@ img {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    button {
+    .menu {
         display: none;
-    }
-
-    nav {
-        display: block;
     }
 
     nav li {
         display: inline-block;
         margin: 0 20px;
+    }
+
+    .viewer {
+        margin: 100px;
     }
 }
