@@ -1,0 +1,70 @@
+:root {
+    --base: 16;
+    /* px to rem: E.g.: 40px === 2.5rem */
+    --spacing-primary: calc((40 / var(--base)) * 1rem);
+    --width-max: calc((1200 / var(--base)) * 1rem);
+    --breakpoint-middle: calc((700 / var(--base)) * 1rem);
+    --breakpoint-large: calc((1000 / var(--base)) * 1rem);
+}
+
+footer,
+header,
+main,
+nav {
+    max-width: var(--width-max);
+    margin: 0 auto;
+    padding: var(--spacing-primary);
+}
+
+header,
+footer {
+    text-align: center;
+}
+
+section.gallery {
+    display: grid;
+    grid-template-columns: auto;
+    gap: var(--spacing-primary);
+    place-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+@media screen and (min-width: 700px) {
+    section.gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    section.gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    button {
+        display: none;
+    }
+
+    nav {
+        display: block;
+    }
+
+    nav li {
+        display: inline-block;
+        margin: 0 20px;
+    }
+}
