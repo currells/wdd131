@@ -27,9 +27,9 @@ function closeViewer() {
     document.querySelector('.viewer').remove();
 }
 
-function viewHandler(element) {
+function viewHandler(event) {
     // create a variable to hold the element that was clicked on from event.target
-    const clickedImg = element.target;
+    const clickedImg = event.target;
 
     // get the src attribute from that element and 'split' it on the "-"
     const imgSrc = clickedImg.getAttribute('src').split('-');
