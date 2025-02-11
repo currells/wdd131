@@ -1,0 +1,156 @@
+:root {
+    --base: 16;
+    /* px to rem: E.g.: 40px === 2.5rem */
+    --spacing-primary: calc((40 / var(--base)) * 1rem);
+    --width-max: calc((1000 / var(--base)) * 1rem);
+
+    /* colors */
+    --color-gold: #efc69b;
+    --color-red: #af1b3f;
+    --color-dark-gray: #473144;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: var(--color-dark-gray);
+}
+
+aside {
+    text-align: right;
+}
+
+h1 {
+    grid-area: header;
+    text-align: center;
+    font-size: 28px;
+    padding: 40px 0;
+}
+
+h2 {
+    color: var(--color-red);
+    padding: 5px 0 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lora", Impact, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* header,
+main {
+    padding: 30px;
+} */
+
+nav {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px 0;
+    border-top: 1px solid var(--color-gold);
+    border-bottom: 1px solid var(--color-gold);
+    color: var(--color-red);
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    justify-content: center;
+    justify-items: center;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    list-style: none;
+}
+
+section#review img {
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 700px) {
+    article {
+        grid-area: article;
+    }
+
+    aside {
+        grid-area: aside;
+        border-right: 1px solid var(--color-gold);
+        padding: 7px 20px;
+    }
+
+    aside p {
+        padding: 5px 0;
+    }
+
+    aside p:not(:first-of-type) {
+        font-size: 14px;
+    }
+
+    nav ul {
+        justify-content: end;
+        justify-items: end;
+    }
+
+    section#review {
+        display: grid;
+        gap: 20px;
+        grid-area: section;
+        grid-template-areas: "aside article";
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    form {
+        grid-area: form;
+        padding: 20px;
+        border: 1px solid var(--color-gold);
+    }
+
+    form div {
+        display: grid;
+        grid-template-areas:
+            "label select"
+            "label select"
+            "label select"
+            "label select";
+        grid-template-columns: 4fr 5fr;
+    }
+
+    form div:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+
+    select {
+        grid-area: select;
+        padding: 3px;
+    }
+
+    label {
+        grid-area: label;
+        display: flex;
+        align-items: center;
+    }
+
+    main {
+        display: grid;
+        gap: 20px;
+        grid-template-areas:
+            "header header"
+            "section form";
+        grid-template-columns: 3fr 1fr;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: initial;
+    }
+}
