@@ -25,3 +25,25 @@ const articles = [
 		stars: '⭐⭐⭐⭐'
 	}
 ]
+
+const templateContainer = document.getElementById('js-template-container');
+
+const template = (article) => (`
+	<section class="review">
+		<aside>
+			<p id="date">${article.date}</p>
+			<p id="age">${article.ages}</p>
+			<p id="genre">${article.genre}</p>
+			<p id="rating">${article.stars}</p>
+		</aside>
+
+		<article>
+			<h2>${article.title}</h2>
+			<img src="${article.imgSrc}" alt="${article.imgAlt}" width="200" />
+			<p>${article.description}
+			</p>
+		</article>
+	</section>
+`);
+
+articles.map((article) => templateContainer.innerHTML += template(article));

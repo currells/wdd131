@@ -10,6 +10,10 @@
     --color-dark-gray: #473144;
 }
 
+* {
+    line-height: 1.25;
+}
+
 body {
     font-family: Helvetica, Arial, sans-serif;
     color: var(--color-dark-gray);
@@ -28,7 +32,7 @@ h1 {
 
 h2 {
     color: var(--color-red);
-    padding: 5px 0 10px 0;
+    padding: 5px 0 15px 0;
     font-size: 20px;
     font-weight: bold;
 }
@@ -45,10 +49,9 @@ h6 {
     font-style: normal;
 }
 
-/* header,
-main {
-    padding: 30px;
-} */
+p {
+    margin: 20px 0;
+}
 
 nav {
     max-width: 1000px;
@@ -72,7 +75,7 @@ nav li {
     list-style: none;
 }
 
-section#review img {
+section.review img {
     display: block;
     margin: 0 auto;
 }
@@ -85,10 +88,11 @@ section#review img {
     aside {
         grid-area: aside;
         border-right: 1px solid var(--color-gold);
-        padding: 7px 20px;
+        padding: 10px 20px;
     }
 
     aside p {
+        margin: initial;
         padding: 5px 0;
     }
 
@@ -101,7 +105,7 @@ section#review img {
         justify-items: end;
     }
 
-    section#review {
+    section.review {
         display: grid;
         gap: 20px;
         grid-area: section;
