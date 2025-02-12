@@ -108,9 +108,12 @@ section.review img {
     section.review {
         display: grid;
         gap: 20px;
-        grid-area: section;
         grid-template-areas: "aside article";
         grid-template-columns: 1fr 3fr;
+    }
+
+    .reviews { 
+        grid-area: section;
     }
 }
 
