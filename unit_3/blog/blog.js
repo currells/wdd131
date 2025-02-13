@@ -26,10 +26,8 @@ const articles = [
 	}
 ]
 
-const templateContainer = document.getElementById('js-template-container');
-
-const template = (article) => (`
-	<section class="review">
+const templateFor = (article) => (`
+	<article class="review">
 		<aside>
 			<p id="date">${article.date}</p>
 			<p id="age">${article.ages}</p>
@@ -37,13 +35,18 @@ const template = (article) => (`
 			<p id="rating">${article.stars}</p>
 		</aside>
 
-		<article>
+		<div>
 			<h2>${article.title}</h2>
 			<img src="${article.imgSrc}" alt="${article.imgAlt}" width="200" />
-			<p>${article.description}
-			</p>
-		</article>
-	</section>
+			<p>${article.description}</p>
+		</div>
+	</article>
 `);
 
-articles.map((article) => templateContainer.innerHTML += template(article));
+const main = document.querySelector('main');
+const reviewsContainer = document.createElement('section');
+
+reviewsContainer.classList.add('reviews');
+
+articles.map((article) => reviewsContainer.innerHTML += templateFor(article));
+main.appendChild(reviewsContainer);
