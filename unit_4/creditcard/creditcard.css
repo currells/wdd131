@@ -1,0 +1,158 @@
+body {
+    text-transform: uppercase;
+    padding: 200px 0;
+}
+
+input {
+    border: 1px solid #444444;
+    line-height: 30px;
+    margin: 0 0 25px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    letter-spacing: .7px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin: 0 auto 7px;
+}
+
+form[name="credit-card"] {
+    margin: auto;
+    width: 500px;
+    height: 290px;
+    position: relative;
+}
+
+#credit-card {
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    grid-template-columns: 25% 50% 25%;
+}
+
+#card-front,
+#card-back {
+    background-color: #dddddd;
+    border-radius: 6px;
+    padding: 20px 30px 0;
+    letter-spacing: 1px;
+}
+
+#card-front {
+    box-shadow: 4px 3px 2px rgba(0, 0, 0, 0.15);
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#card-back {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    /* keeps stripe contained to #card-back */
+    position: relative;
+    z-index: -2;
+}
+
+#card-stripe {
+    width: 100%;
+    height: 45px;
+    background-color: #444444;
+    position: absolute;
+    right: 0;
+}
+
+/**************************** card header styles *****************************/
+#image-container {
+    width: 100%;
+    position: relative;
+    height: 55px;
+    margin-bottom: 5px;
+    line-height: 55px;
+}
+
+#image-container img {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/**************************** /card header styles ****************************/
+/**************************** front-grid styles ******************************/
+#front-grid {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    grid-template-areas:
+        "cardholder exp";
+}
+/**************************** /front-grid styles *****************************/
+/***************************** cardholder styles *****************************/
+#cardholder-container {
+    grid-area: cardholder;
+}
+/***************************** /cardholder styles ****************************/
+/******************************** date styles ********************************/
+#exp-container {
+    margin-left: 10px;
+    grid-area: exp;
+    float: right;
+}
+
+#card-exp {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "month year";
+}
+
+#card-month {
+    grid-area: month;
+    width: 100% !important;
+}
+
+#card-year {
+    grid-area: year;
+    width: 100%;
+    float: right;
+}
+/******************************** /date styles *******************************/
+/******************************** cvc styles *********************************/
+#cvv-container {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+#cvv-container label {
+    width: 100%;
+}
+
+#cvv {
+    width: 60px;
+    margin-bottom: 0;
+}
+/******************************** /cvc styles ********************************/
+/****************************** button styles ********************************/
+#card-btn {
+    background-color: #dddddd;
+    position: absolute;
+    bottom: -55px;
+    right: 0;
+    width: 100px;
+    border-radius: 8px;
+    height: 42px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    border: 2px solid #444444;
+    cursor: pointer;
+}
+
+#card-btn:hover {
+    background-color: rgba(251, 251, 251, 1);
+}
+/****************************** /button styles *******************************/
