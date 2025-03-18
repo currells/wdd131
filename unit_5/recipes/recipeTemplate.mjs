@@ -5,7 +5,7 @@ const tagsTemplate = (tags) => (`
             otherwise, the rendered output would be separated by commas
         -->
         ${tags.map((tag) => (`
-            <li class="tag" data-tag="${tag}">${tag}</li>
+            <li class="js-tag" data-tag="${tag}">${tag}</li>
         `)).join('')}
     </ul>
 `);
