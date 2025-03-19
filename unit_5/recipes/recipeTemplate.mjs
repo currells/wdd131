@@ -36,10 +36,15 @@ const ratingTemplate = (rating) => (`
 `);
 
 const recipeTemplate = ({
+    cookTime,
     description,
     image,
     name,
+    prepTime,
     rating,
+    recipeIngredient,
+    recipeInstructions,
+    recipeYield,
     tags,
     url,
 }) => {
@@ -62,6 +67,39 @@ const recipeTemplate = ({
                 ${ratingRegion}
 
                 <p>${description}</p>
+
+                <div class="recipe-meta">
+                    <div>
+                        <p><strong>Prep Time</strong></p>
+                        <p>${prepTime}</p>
+                    </div>
+                    <div>
+                        <p><strong>Cook Time</strong></p>
+                        <p>${cookTime}</p>
+                    </div>
+                    <div>
+                        <p><strong>Servings</strong></p>
+                        <p>${recipeYield}</p>
+                    </div>
+                </div>
+
+                <p>
+                    <a class="js-ingredients-link" href="javascript:void(0);">Ingredients &amp; Prep</a>
+                </p>
+
+                <div class="js-ingredients-list hide">
+                    <h3>Ingredients</h3>
+
+                    <ul>
+                        ${recipeIngredient.map((ingredient) =>
+                            (`<li>${ingredient}</li>`)).join('')}
+                    </ul>
+
+                    <h3>Preparation</h3>
+
+                    ${recipeInstructions.map((ingredient) =>
+                        (`<p>${ingredient}</p>`)).join('')}
+                </div>
             </figcaption>
         </figure>
     `);

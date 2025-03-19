@@ -32,6 +32,23 @@ const addTagClickHandlers = () => {
         handlerMap.set(tag, handleClick);
     });
 };
+const addIngredientClickHandler = () => {
+    ingredientsLinks = document.getElementsByClassName('js-ingredients-link');
+    ingredientsLists = document.getElementsByClassName('js-ingredients-list');
+
+    let ingredientsLinksArr = [...ingredientsLinks];
+    let ingredientsListsArr = [...ingredientsLists];
+
+    ingredientsLinksArr.forEach((ingredientsLink, index) => {
+        const handleClick = (e) => {
+            ingredientsListsArr[index].classList.toggle('hide');
+        };
+
+        ingredientsLink.addEventListener('click', handleClick);
+
+        handlerMap.set(ingredientsLinks, handleClick);
+    });
+};
 const clearEventListeners = () => {
     handlerMap.forEach((handler, element) => {
         if (element && element.removeEventListener) {
@@ -51,8 +68,11 @@ const updateDom = (items) => {
     });
 
     addTagClickHandlers();
+    addIngredientClickHandler();
 };
 let tags;
+let ingredientsLinks;
+let ingredientsLists;
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -66,6 +86,7 @@ function init() {
     recipeContainer.innerHTML = recipeTemplate(getRandListItem(recipes));
 
     addTagClickHandlers();
+    addIngredientClickHandler();
 }
 
 init();
