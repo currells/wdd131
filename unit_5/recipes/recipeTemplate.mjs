@@ -70,22 +70,22 @@ const recipeTemplate = ({
 
                 <div class="recipe-meta">
                     <div>
-                        <p><strong>Prep Time</strong></p>
-                        <p>${prepTime}</p>
+                        <p class="recipe-meta-label">Prep Time</p>
+                        <p class="recipe-meta-detail">${prepTime}</p>
                     </div>
                     <div>
-                        <p><strong>Cook Time</strong></p>
-                        <p>${cookTime}</p>
+                        <p class="recipe-meta-label">Cook Time</p>
+                        <p class="recipe-meta-detail">${cookTime}</p>
                     </div>
                     <div>
-                        <p><strong>Servings</strong></p>
-                        <p>${recipeYield}</p>
+                        <p class="recipe-meta-label">Servings</p>
+                        <p class="recipe-meta-detail">${recipeYield}</p>
                     </div>
                 </div>
 
-                <p>
-                    <a class="js-ingredients-link" href="javascript:void(0);">Ingredients &amp; Prep</a>
-                </p>
+                <button class="js-ingredients-link button-as-link">
+                    Ingredients &amp; Prep
+                </button>
 
                 <div class="js-ingredients-list hide">
                     <h3>Ingredients</h3>
