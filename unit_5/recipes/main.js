@@ -1,6 +1,7 @@
 import recipes from "./recipes.mjs";
 import recipeTemplate from "./recipeTemplate.mjs";
 
+const errorRegion = document.getElementById('js-validation-error');
 const form = document.recipes;
 const recipeContainer = document.getElementById('js-recipe-container');
 // store for event handlers
@@ -100,6 +101,9 @@ const updateDom = (items) => {
     addTagClickHandlers();
     addIngredientClickHandler();
 };
+
+const validateForm = (form) => !!form.recipe.value.trim();
+
 let tags;
 let ingredientsLinks;
 let ingredientsLists;
@@ -107,9 +111,15 @@ let ingredientsLists;
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const filteredRecipes = filterRecipes(e.currentTarget.recipe.value.toLowerCase());
-
-    updateDom(filteredRecipes);
+    if (validateForm(e.target)) {
+        const filteredRecipes = filterRecipes(e.currentTarget.recipe.value.toLowerCase());
+    
+        updateDom(filteredRecipes);
+        
+        errorRegion.classList.add('hide');
+    } else {
+        errorRegion.classList.remove('hide');
+    }
 });
 
 function init() {

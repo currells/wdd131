@@ -5,12 +5,14 @@
     --color-blue: #1b98e0;
     --color-gray-dark: #333333;
     --color-gray-light: #ebebeb;
+    --color-red: #ff0000;
     --color-sea-foam-green: #59c3c3;
     /* defaults */
     --color-background-dark: var(--color-gray-dark);
     --color-background-light: var(--color-gray-light);
     --color-border-dark: var(--color-gray-dark);
     --color-border-light: var(--color-gray-light);
+    --color-error: var(--color-red);
     --color-primary: var(--color-blue);
     --color-secondary: var(--color-sea-foam-green);
     --color-text-dark: var(--color-gray-dark);
@@ -181,6 +183,10 @@ form[name="recipes"] button[type="submit"] {
 .button-as-link:hover {
     color: var(--color-blue);
     text-decoration: none;
+}
+
+.validation-error {
+    color: var(--color-error);
 }
 
 @media (min-width: 380px) {
