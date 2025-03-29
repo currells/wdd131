@@ -17,11 +17,11 @@
     <main>
         <form name="recipes">
             <input
-                type="text"
-                name="recipe"
-                id="js-recipe"
-                placeholder="Find a recipe"
                 aria-label="Find a recipe"
+                id="js-recipe"
+                name="recipe"
+                placeholder="Find a recipe"
+                type="text"
             />
             <button
                 aria-label="submit"
@@ -30,6 +30,12 @@
             >
             </button>
         </form>
+        <p
+            class="validation-error hide"
+            id="js-validation-error"
+        >
+            Please enter your search criteria.
+        </p>
         <div id="js-recipe-container"></div>
     </main>
     <footer>

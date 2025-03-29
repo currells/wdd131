@@ -5,12 +5,14 @@
     --color-blue: #1b98e0;
     --color-gray-dark: #333333;
     --color-gray-light: #ebebeb;
+    --color-red: #ff0000;
     --color-sea-foam-green: #59c3c3;
     /* defaults */
     --color-background-dark: var(--color-gray-dark);
     --color-background-light: var(--color-gray-light);
     --color-border-dark: var(--color-gray-dark);
     --color-border-light: var(--color-gray-light);
+    --color-error: var(--color-red);
     --color-primary: var(--color-blue);
     --color-secondary: var(--color-sea-foam-green);
     --color-text-dark: var(--color-gray-dark);
@@ -93,12 +95,13 @@ form[name="recipes"] button[type="submit"] {
     border-bottom-right-radius: 5px;
 }
 
-#recipe {
+.recipe {
     display: flex;
     flex-direction: column;
     margin: 20px 0 0 0;
     border: 1px solid var(--color-border-dark);
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .recipe-meta {
@@ -130,7 +133,7 @@ form[name="recipes"] button[type="submit"] {
     color: var(--color-text-secondary);
 }
 
-#recipe > .recipe-description {
+.recipe > .recipe-description {
     padding: 20px;
 }
 
@@ -182,6 +185,10 @@ form[name="recipes"] button[type="submit"] {
     text-decoration: none;
 }
 
+.validation-error {
+    color: var(--color-error);
+}
+
 @media (min-width: 380px) {
     .recipe-meta {
         display: flex;
@@ -208,15 +215,15 @@ form[name="recipes"] button[type="submit"] {
         object-fit: cover;
     }
 
-    #recipe {
+    .recipe {
         flex-direction: row;
     }
 
-    #recipe > .recipe-image {
+    .recipe > .recipe-image {
         flex: 40%;
     }
 
-    #recipe > .recipe-description {
+    .recipe > .recipe-description {
         flex: 60%;
         padding: 50px;
     }
