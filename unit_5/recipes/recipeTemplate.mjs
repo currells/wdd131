@@ -35,6 +35,35 @@ const ratingTemplate = (rating) => (`
     </p>
 `);
 
+const metaTemplate = (items) => (`
+    <div class="recipe-meta">
+        ${items.map(({ label, value }) => (`
+            <div>
+                <p class="recipe-meta-label">${label}</p>
+                <p class="recipe-meta-detail">${value || 'N/A'}</p>
+            </div>    
+        `)).join('')}
+    </div>
+`);
+
+const ingredientsTemplate = (ingredients) => (`
+    <h3>Ingredients</h3>
+
+    <ul>
+        ${ingredients.map((ingredient) =>
+            (`<li>${ingredient}</li>`)).join('')}
+    </ul>
+`);
+
+const prepTemplate = (steps) => (`
+    <h3>Preparation</h3>
+
+    <ol>
+        ${steps.map((step) =>
+            (`<li>${step}</li>`)).join('')}
+    </ol>
+`);
+
 const recipeTemplate = ({
     cookTime,
     description,
@@ -48,13 +77,30 @@ const recipeTemplate = ({
     tags,
     url,
 }) => {
-    const tagsRegion = tagsTemplate(tags);
+    const metaData = [
+        {
+            label: 'Prep Time',
+            value: prepTime,
+        },
+        {
+            label: 'Cook Time',
+            value: cookTime,
+        },
+        {
+            label: 'Servings',
+            value: recipeYield,
+        },
+    ];
+    const ingredientsRegion = ingredientsTemplate(recipeIngredient);
+    const metaRegion = metaTemplate(metaData);
+    const prepRegion = prepTemplate(recipeInstructions);
     const ratingRegion = ratingTemplate(rating);
+    const tagsRegion = tagsTemplate(tags);
 
     return (`
-        <figure id="recipe">
+        <figure class="recipe">
             <div class="recipe-image">
-                <img alt="${name}" id="js-image" src="${image}" />
+                <img alt="${name}" src="${image}" />
             </div>
 
             <figcaption class="recipe-description">
@@ -68,37 +114,15 @@ const recipeTemplate = ({
 
                 <p>${description}</p>
 
-                <div class="recipe-meta">
-                    <div>
-                        <p class="recipe-meta-label">Prep Time</p>
-                        <p class="recipe-meta-detail">${prepTime}</p>
-                    </div>
-                    <div>
-                        <p class="recipe-meta-label">Cook Time</p>
-                        <p class="recipe-meta-detail">${cookTime}</p>
-                    </div>
-                    <div>
-                        <p class="recipe-meta-label">Servings</p>
-                        <p class="recipe-meta-detail">${recipeYield}</p>
-                    </div>
-                </div>
+                ${metaRegion}
 
                 <button class="js-ingredients-link button-as-link">
                     Ingredients &amp; Prep
                 </button>
 
                 <div class="js-ingredients-list hide">
-                    <h3>Ingredients</h3>
-
-                    <ul>
-                        ${recipeIngredient.map((ingredient) =>
-                            (`<li>${ingredient}</li>`)).join('')}
-                    </ul>
-
-                    <h3>Preparation</h3>
-
-                    ${recipeInstructions.map((ingredient) =>
-                        (`<p>${ingredient}</p>`)).join('')}
+                    ${ingredientsRegion}
+                    ${prepRegion}
                 </div>
             </figcaption>
         </figure>

@@ -95,7 +95,7 @@ form[name="recipes"] button[type="submit"] {
     border-bottom-right-radius: 5px;
 }
 
-#recipe {
+.recipe {
     display: flex;
     flex-direction: column;
     margin: 20px 0 0 0;
@@ -133,7 +133,7 @@ form[name="recipes"] button[type="submit"] {
     color: var(--color-text-secondary);
 }
 
-#recipe > .recipe-description {
+.recipe > .recipe-description {
     padding: 20px;
 }
 
@@ -215,15 +215,15 @@ form[name="recipes"] button[type="submit"] {
         object-fit: cover;
     }
 
-    #recipe {
+    .recipe {
         flex-direction: row;
     }
 
-    #recipe > .recipe-image {
+    .recipe > .recipe-image {
         flex: 40%;
     }
 
-    #recipe > .recipe-description {
+    .recipe > .recipe-description {
         flex: 60%;
         padding: 50px;
     }
