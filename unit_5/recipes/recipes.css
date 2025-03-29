@@ -99,6 +99,7 @@ form[name="recipes"] button[type="submit"] {
     margin: 20px 0 0 0;
     border: 1px solid var(--color-border-dark);
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .recipe-meta {
